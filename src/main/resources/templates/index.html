@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="ISO-8859-1">
+<title>Medicine Management System</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+</head>
+<body th:style="'background-image:url(' + @{/img/medicine.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'"
+>
+	<!-- create navigation bar ( header) -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" th:href="@{/}">Medicine Management System</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					
+				<!--  	<li sec:authorize="isAuthenticated()"><a th:href="@{/Home}">Home</a></li>
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/Medicines}">Medicines</a></li>
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/Orders}">Orders</a></li> -->
+					<li><a th:href="@{/}"  class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        			<li><a th:href="@{/medicinesForm}"><i class="bx bx-file-blank"></i> <span>Medicines</span></a></li>
+        			<li><a th:href="@{/orderForm}"><i class="bx bx-book-content"></i> <span>Order</span></a></li>
+        			<li><a th:href="@{/logout}"><i class="bx bx-book-content"></i> <span>Log Out</span></a></li>
+				</ul>
+			</div>
+		</div>
+	
+</nav>
+
+<br>
+<br>
+<br>
+	<div class="container">
+		<h1>Welcome in Medicines Management System</h1>
+		Welcome <span sec:authentication="principal.username"> User</span></br>
+		<div class="content"><div class="ic">   
+	</div>
+	</div>
+	</div>
+	 <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+	
+                
+</body>
+</html>

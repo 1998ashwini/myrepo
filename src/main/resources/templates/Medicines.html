@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="ISO-8859-1">
+<title>Medicines Details</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+	<nav th:fragment= "header" class="navbar navbar-expand-lg navbar-dark" style="background-color: black; color: white;">
+    <a class="navbar-brand">Medicine Management System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+
+        <ul class="navbar-nav mr-auto" >
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+            </li>
+            
+            
+        </ul>
+    </div>
+    <form action="#" th:action="@{/logout}"
+          method="POST">
+        <input type="submit" value="Logout" class="btn btn-outline-primary mt-2" />
+    </form>
+</nav>
+	
+
+<div class = "container my-2">
+<h1>Medicines Details</h1>
+
+<a th:href = "@{/showNewMedicinesForm}" class="btn btn-info btn-sm mb-3"> Add Medicines </a>
+<br>
+<!--  <a th:href = "@{/MedicinesSearch}" class="btn btn-info btn-sm mb-3"> Search Medicines </a> -->
+<table border="1" class = "table table-striped table-responsive-md">
+
+<thead>
+				<tr>
+					<th>
+						<a th:href="@{'/page/' + ${currentPage} + '?sortField=medicine_name&sortDir=' + ${reverseSortDir}}">
+							Medicine Name</a>
+					</th>
+					<th>
+					<a th:href="@{'/page/' + ${currentPage} + '?sortField=company_name&sortDir=' + ${reverseSortDir}}">
+							Company Name</a>
+					</th>
+				
+					<th>
+					<a th:href="@{'/page/' + ${currentPage} + '?sortField=available&sortDir=' + ${reverseSortDir}}">
+							Medicines Available</a>
+					</th>
+					<th> Actions </th>
+					</tr>
+					</thead>
+				
+			
+
+  <tbody>
+  <tr th:each="Medicines : ${listMedicines}">
+  <td th:text="${Medicines.medicine_name}"></td>
+    <td th:text="${Medicines.company_name}"></td>
+      <td th:text="${Medicines.available}"></td>
+      <td> <a th:href="@{/showFormForMedicinesUpdate/{id}(id=${Medicines.medicine_id})}" class="btn btn-success">Update</a>
+       <a th:href="@{/deleteMedicines/{id}(id=${Medicines.medicine_id})}" class="btn btn-danger">Delete</a>
+      </td>
+     
+      
+      
+  </tr>
+  </tbody>
+
+</table>
+</div>
+
+</body>
+</html>
